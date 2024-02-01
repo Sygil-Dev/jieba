@@ -14,14 +14,9 @@ def setLogLevel(log_level):
 
 check_paddle_install = {'is_paddle_installed': False}
 
-try:
-    import pkg_resources
 
-    get_module_res = lambda *res: pkg_resources.resource_stream(__name__,
-                                                                os.path.join(*res))
-except ImportError:
-    get_module_res = lambda *res: open(os.path.normpath(os.path.join(
-        os.getcwd(), os.path.dirname(__file__), *res)), 'rb')
+get_module_res = lambda *res: open(os.path.normpath(os.path.join(
+    os.getcwd(), os.path.dirname(__file__), *res)), 'rb')
 
 
 def enable_paddle():
